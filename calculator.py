@@ -31,3 +31,17 @@ def power(base: float, exp: float) -> float:
 def modulo(a: int, b: int) -> int:
     """Return the remainder of a divided by b."""
     return a % b
+
+def average(numbers: list) -> float:
+    """Return the average of a list of numbers."""
+    if len(numbers) == 0:
+        raise ValueError("Cannot calculate average of an empty list")
+    return sum(numbers) / len(numbers)
+
+
+def test_average():
+    assert average([2, 4, 6]) == 4.0
+
+def test_average_empty_list_raises_error():
+    with pytest.raises(ValueError):
+        average([])
