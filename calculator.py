@@ -45,3 +45,24 @@ def test_average():
 def test_average_empty_list_raises_error():
     with pytest.raises(ValueError):
         average([])
+
+
+def is_prime(n: int) -> bool:
+    """Return True if n is a prime number, False otherwise."""
+    if n < 2:
+        return False
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+    return True
+
+
+
+def test_is_prime_true():
+    assert is_prime(7) == True
+
+def test_is_prime_false():
+    assert is_prime(8) == False
+
+def test_is_prime_edge_case_1():
+    assert is_prime(1) == False

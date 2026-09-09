@@ -1,4 +1,4 @@
-from calculator import add, subtract, divide, multiply, is_even, is_positive, power, modulo
+from calculator import add, subtract, divide, multiply, is_even, is_positive, power, modulo, average, is_prime
 import pytest
 
 def test_add():
@@ -75,3 +75,18 @@ def test_add_parametrized(a, b, expected):
 
 def test_modulo():
     assert modulo(10, 3) == 1
+def test_average():
+    assert average([2, 4, 6]) == 4.0
+
+def test_average_empty_list_raises_error():
+    with pytest.raises(ValueError):
+        average([])
+
+def test_is_prime_true():
+    assert is_prime(7) == True
+
+def test_is_prime_false():
+    assert is_prime(8) == False
+
+def test_is_prime_edge_case_1():
+    assert is_prime(1) == False
